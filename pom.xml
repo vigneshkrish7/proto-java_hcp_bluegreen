@@ -18,15 +18,15 @@
     </licenses>
 
     <properties>
-        <!-- Properties that hold information on the location, version and plugin of the SAP Cloud Platform SDK -->
+        <!-- Properties that hold information on the location, version and plugin of the SAP HANA Cloud Platform SDK -->
         <sap.cloud.sdk.path>${project.basedir}/../..</sap.cloud.sdk.path>
-        <sap.cloud.sdk.version>2.69.9.2</sap.cloud.sdk.version>
+        <sap.cloud.sdk.version>2.66.3</sap.cloud.sdk.version>
         <sap.cloud.sdk.plugin>neo-java-web-maven-plugin</sap.cloud.sdk.plugin>
 
-        <!-- Property that holds the supported JDK version for the given SAP Cloud Platform SDK -->
+        <!-- Property that holds the supported JDK version for the given SAP HANA Cloud Platform SDK -->
         <sap.cloud.jdk.version>1.7</sap.cloud.jdk.version>
 
-        <!-- Properties for account, user name, and password that are required to access the SAP Cloud Platform -->
+        <!-- Properties for account, user name, and password that are required to access the SAP HANA Cloud Platform -->
         <!-- data center for the cloud integration tests must be provided as Maven properties, e.g.: -->
         <!-- mvn clean verify -P cloud-integration-tests -Dsap.cloud.account=... -Dsap.cloud.username=... -Dsap.cloud.password=... -->
         <!-- Hint: To avoid retyping the above whenever you call Maven, you can of course add the properties directly, e.g.: -->
@@ -59,7 +59,7 @@
     </properties>
 
     <dependencies>
-        <!-- The SAP Cloud Platform Java Web Tomcat 7 API -->
+        <!-- The SAP HANA Cloud Platform Java Web Tomcat 7 API -->
         <dependency>
             <groupId>com.sap.cloud</groupId>
             <artifactId>neo-java-web-api</artifactId>
@@ -179,7 +179,7 @@
                 </configuration>
             </plugin>
 
-            <!-- Set compiler to officially supported JDK version for the given SAP Cloud Platform SDK -->
+            <!-- Set compiler to officially supported JDK version for the given SAP HANA Cloud Platform SDK -->
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>2.5.1</version>
@@ -247,7 +247,7 @@
 
         <pluginManagement>
             <plugins>
-                <!-- Define the version of the Maven Plugin for SAP Cloud Platform we want to use -->
+                <!-- Define the version of the Maven Plugin for SAP HANA Cloud Platform we want to use -->
                 <plugin>
                     <groupId>com.sap.cloud</groupId>
                     <artifactId>${sap.cloud.sdk.plugin}</artifactId>
@@ -352,17 +352,17 @@
                                     <rules>
                                         <requireProperty>
                                             <property>sap.cloud.account</property>
-                                            <message>Maven property for SAP Cloud Platform account
+                                            <message>Maven property for SAP HANA Cloud Platform account
                                                 (-Dsap.cloud.account=...) is missing, but required!</message>
                                         </requireProperty>
                                         <requireProperty>
                                             <property>sap.cloud.username</property>
-                                            <message>Maven property for SAP Cloud Platform user name
+                                            <message>Maven property for SAP HANA Cloud Platform user name
                                                 (-Dsap.cloud.username=...) is missing, but required!</message>
                                         </requireProperty>
                                         <requireProperty>
                                             <property>sap.cloud.password</property>
-                                            <message>Maven property for SAP Cloud Platform password
+                                            <message>Maven property for SAP HANA Cloud Platform password
                                                 (-Dsap.cloud.password=...) is missing, but required!</message>
                                         </requireProperty>
                                     </rules>
@@ -458,8 +458,8 @@
             </build>
         </profile>
 
-        <!-- The local integration tests will install a local server from the repository that is contained inside the SAP Cloud 
-            Platform SDK (install-local-server), deploy the sample application (deploy-local-application), allow samples to run 
+        <!-- The local integration tests will install a local server from the repository that is contained inside the SAP HANA 
+            Cloud Platform SDK (install-local-server), deploy the sample application (deploy-local-application), allow samples to run 
             sample specific application configurations (prepare-local-application), start the local server and wait for the deployed 
             sample application to become available (start-local-server), run the integration tests with the maven-failsafe-plugin (execute-local-integration-tests) 
             and finally stop the local server (stop-local-server) -->
@@ -569,7 +569,7 @@
             </build>
         </profile>
 
-        <!-- If HTTPS Internet access requires a proxy the Maven Plugin for SAP Cloud Platform and the Failsafe plugin 
+        <!-- If HTTPS Internet access requires a proxy the Maven Plugin for SAP HANA Cloud Platform and the Failsafe plugin 
             running the integration tests need to know of it (the profile will auto-activate if https.proxyHost is provided) -->
         <profile>
             <id>use-https-proxy</id>

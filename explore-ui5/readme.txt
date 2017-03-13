@@ -1,13 +1,13 @@
-########################################################
-# Welcome to the SAP Cloud Platform Explore UI5 Sample #
-########################################################
+#############################################################
+# Welcome to the SAP HANA Cloud Platform Explore UI5 Sample #
+#############################################################
 
 1. Prerequisites for execution on your local server from within Eclipse
 
 1.1 (Optional) Configure an HTTP proxy for the UI resource download from the cloud
 
 The sample will load its UI resources from the cloud at "https://hana.ondemand.com". In case you run the sample
-from behind an outgoing HTTP proxy, make sure you have configured the proxy as part of the SAP Cloud Platform local runtime
+from behind an outgoing HTTP proxy, make sure you have configured the proxy as part of the SAP HANA Cloud Platform local runtime
 in Eclipse. To do this, double-click the local server in the Servers view, then click the "Open launch
 configuration" link on the Overview tab, this opens the "Edit launch configuration properties" view. Navigate there to
 the "Arguments" tab and add your proxy definition as "VM arguments" in following format:

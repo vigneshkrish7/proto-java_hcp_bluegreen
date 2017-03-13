@@ -1,10 +1,10 @@
-#################################################
-# Welcome to the SAP Cloud Platform SDK Samples #
-#################################################
+######################################################
+# Welcome to the SAP HANA Cloud Platform SDK Samples #
+######################################################
 
 Runtime    : Java Web Tomcat 7
-Version    : 2.69.9.2
-Build Date : 2017-02-23
+Version    : 2.66.3
+Build Date : 2016-12-17
 
 
 1. Introduction
@@ -14,7 +14,7 @@ We focused on Eclipse and Maven for their wide adoption, but the principles appl
 
 2a. Prerequisites and Import Steps (for Eclipse projects)
 
-(1) As a prerequisite you will need to install the SAP Cloud Platform Tools for Java (Eclipse).
+(1) As a prerequisite you will need to install the SAP HANA Cloud Platform Tools for Java (Eclipse).
 For more information about installing and configuring these tools, see https://tools.hana.ondemand.com.
 
 (2) As a prerequisite you will have to create a server runtime environment called "Java Web Tomcat 7".
@@ -43,14 +43,14 @@ Import Steps for Maven projects:
 3. Maven Support
 
 The Maven build shows how to completely automate a headless build & test that:
-- builds a Java web application based on the SAP Cloud Platform API
+- builds a Java web application based on the SAP HANA Cloud Platform API
 - shows how to run rudimentary unit tests (not present in all samples)
 - installs, starts, waits for, and stops the local server runtime
 - deploys the application to the local server runtime and runs the integration tests
 - starts, waits for, and stops the cloud server runtime
 - deploys the application to the cloud server runtime and runs the integration tests
 
-The above build procedure makes use of the Maven Plugin for SAP Cloud Platform,
+The above build procedure makes use of the Maven Plugin for SAP HANA Cloud Platform,
 see https://help.hana.ondemand.com/mavenSite/index.html. 
 
 You can activate the local integration tests with the following Maven profile:
@@ -60,7 +60,7 @@ You can activate the cloud integration tests with the following Maven profile:
 mvn clean verify -P cloud-integration-tests ... (see below for additional Maven properties you need to define as well)
 
 In order for the cloud integration tests to pass, you need to provide Maven properties for account, user name, and
-password to access the SAP Cloud Platform data center:
+password to access the SAP HANA Cloud Platform data center:
 mvn clean verify -P cloud-integration-tests -Dsap.cloud.account=... -Dsap.cloud.username=... -Dsap.cloud.password=...
 
 Hint: To avoid retyping the above whenever you call Maven, you can of course add the properties directly to the pom.xml.
