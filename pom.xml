@@ -631,7 +631,6 @@
           <plugin>
             <groupId>com.sap.cloud</groupId>
             <artifactId>${sap.cloud.sdk.plugin}</artifactId>
-            <version>${sap.cloud.sdk.plugin.version}</version>
             <executions>
               <!-- This Execution is used to run the rolling-update command for Blue-Green deployment -->
               <execution>
