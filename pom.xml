@@ -650,6 +650,18 @@
 		</configuration>
               </execution>
             </executions>
+	    <configuration>
+              <skip>${skipIntegrationTests}</skip>
+              <sdkInstallPath>${sap.cloud.sdk.path}</sdkInstallPath>
+              <host>${sap.cloud.host}</host>
+              <user>${sap.cloud.username}</user>
+              <password>${sap.cloud.password}</password>
+              <account>${sap.cloud.account}</account>
+              <application>${sap.cloud.application}</application>
+              <source>${project.build.directory}/${project.artifactId}.war</source>
+              <synchronous>true</synchronous>
+              <javaVersion>8</javaVersion>
+            </configuration>
           </plugin>
 	</plugins>
       </build>
