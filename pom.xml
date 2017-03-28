@@ -633,6 +633,12 @@
             <artifactId>${sap.cloud.sdk.plugin}</artifactId>
             <executions>
               <!-- This Execution is used to run the rolling-update command for Blue-Green deployment -->
+	      <execution>
+		<phase>initialize</phase>
+		<goals>
+                  <goal>install-sdk</goal>
+		</goals>
+              </execution>
               <execution>
 		<id>deploying-application</id>
 		<phase>package</phase>
