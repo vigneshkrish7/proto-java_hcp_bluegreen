@@ -27,7 +27,7 @@
     <sap.cloud.account>${env.SAP_CLOUD_ACCOUNT}</sap.cloud.account>
     <sap.cloud.username>${env.SAP_CLOUD_USERNAME}</sap.cloud.username>
     <sap.cloud.password>${env.SAP_CLOUD_PASSWORD}</sap.cloud.password>
-    <sap.cloud.application>HelloWorld</sap.cloud.application>
+    <sap.cloud.application>sample</sap.cloud.application>
     
     <!-- Property that holds the supported JDK version for the given SAP Cloud Platform SDK -->
     <sap.cloud.jdk.version>1.7</sap.cloud.jdk.version>
@@ -45,7 +45,6 @@
     <sap.cloud.host>hana.ondemand.com</sap.cloud.host>
 
     <!-- Property that holds the name of the application under which it will later appear in the cloud -->
-    <sap.cloud.application>sample</sap.cloud.application>
 
     <!-- Properties that hold the local server configuration required for local integration-testing -->
     <local.server.root>${project.build.directory}/server</local.server.root>
@@ -624,5 +623,32 @@
         </pluginManagement>
       </build>
     </profile>
+
+    <profile>
+      <id>update</id>
+      <build>
+	<plugins>
+          <plugin>
+            <groupId>com.sap.cloud</groupId>
+            <artifactId>${sap.cloud.sdk.plugin}</artifactId>
+            <version>${sap.cloud.sdk.plugin.version}</version>
+            <executions>
+              <!-- This Execution is used to run the rolling-update command for Blue-Green deployment -->
+              <execution>
+		<id>deploying-application</id>
+		<phase>package</phase>
+		<goals>
+                  <goal>run-console-command</goal>
+		</goals>
+		<configuration>
+                  <consoleCommand>rolling-update -a ${sap.cloud.account} -b ${sap.cloud.application} -h ${sap.cloud.host} -u ${sap.cloud.username} -p ${sap.cloud.password} -source ${project.build.directory}/${project.artifactId}.war</consoleCommand>                 
+		</configuration>
+              </execution>
+            </executions>
+          </plugin>
+	</plugins>
+      </build>
+    </profile>
+    
   </profiles>
 </project>
