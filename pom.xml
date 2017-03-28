@@ -26,6 +26,7 @@
     <sap.cloud.host>${env.SAP_CLOUD_HOST}</sap.cloud.host>
     <sap.cloud.account>${env.SAP_CLOUD_ACCOUNT}</sap.cloud.account>
     <sap.cloud.username>${env.SAP_CLOUD_USERNAME}</sap.cloud.username>
+    <sap.cloud.password>${env.SAP_CLOUD_PASSWORD}</sap.cloud.password>
     <sap.cloud.application>HelloWorld</sap.cloud.application>
     
     <!-- Property that holds the supported JDK version for the given SAP Cloud Platform SDK -->
