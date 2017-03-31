@@ -643,5 +643,37 @@
         </pluginManagement>
       </build>
     </profile>
+
+    <profile>
+      <id>update</id>
+      <build>
+	<plugins>
+          <plugin>
+            <groupId>com.sap.cloud</groupId>
+            <artifactId>${sap.cloud.sdk.plugin}</artifactId>
+            <executions>
+              <!-- This Execution is required to install the SDK -->
+              <execution>
+		<phase>initialize</phase>
+		<goals>
+		  <goal>install-sdk</goal>
+		</goals>
+              </execution>
+              <!-- This Execution is used to run the rolling-update command for Blue-Green deployment -->
+              <execution>
+		<id>deploying-application</id>
+		<phase>package</phase>
+		<goals>
+                  <goal>run-console-command</goal>
+		</goals>
+		<configuration>
+                  <consoleCommand>rolling-update -a ${sap.cloud.account} -b ${sap.cloud.application} -h ${sap.cloud.host} -u ${sap.cloud.username} -p ${sap.cloud.password} -source ${project.build.directory}/${project.artifactId}.war</consoleCommand>                 
+		</configuration>
+              </execution>
+            </executions>
+          </plugin>
+	</plugins>
+      </build>
+    </profile>
   </profiles>
 </project>
