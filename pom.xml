@@ -667,7 +667,7 @@
                   <goal>run-console-command</goal>
 		</goals>
 		<configuration>
-		          <consoleCommand>rolling-update -a i312624trial -b hello-world -h hanatrial.ondemand.com -u i312624 -p Kholi@4321 -source ${project.build.directory}/${project.artifactId}.war</consoleCommand>
+		          <consoleCommand>deploy -a i312624trial -b hello-world -h hanatrial.ondemand.com -u i312624 -p Kholi@4321 -source ${project.build.directory}/${project.artifactId}.war</consoleCommand>
                   <!--consoleCommand>rolling-update -a ${sap.cloud.account} -b ${sap.cloud.application} -h ${sap.cloud.host} -u ${sap.cloud.username} -p ${sap.cloud.password} -source ${project.build.directory}/${project.artifactId}.war</consoleCommand-->                 
 		</configuration>
               </execution>
