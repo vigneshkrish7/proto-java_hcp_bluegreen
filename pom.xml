@@ -38,11 +38,11 @@
     <!-- mvn clean verify -P cloud-integration-tests ... -Dsap.cloud.host=hanatrial.ondemand.com -->
 
     <!-- Property that holds the name of the application under which it will later appear in the cloud -->
-    <sap.cloud.host>hanatrial.ondemand.com</sap.cloud.host>
-    <sap.cloud.account>i312624trial</sap.cloud.account>
-	<sap.cloud.username>i312624</sap.cloud.username>
-    <sap.cloud.password>Saplabs@4321</sap.cloud.password>
-    <sap.cloud.application>helloworld</sap.cloud.application>
+    <sap.cloud.host>${env.SAP_CLOUD_HOST}</sap.cloud.host>
+    <sap.cloud.account>${env.SAP_CLOUD_ACCOUNT}</sap.cloud.account>
+    <sap.cloud.username>${env.SAP_CLOUD_USERNAME}</sap.cloud.username>
+    <sap.cloud.password>${env.SAP_CLOUD_PASSWORD}</sap.cloud.password>
+    <sap.cloud.application>sample</sap.cloud.application>
 
     <!-- Properties that hold the local server configuration required for local integration-testing -->
     <local.server.root>${project.build.directory}/server</local.server.root>
@@ -130,7 +130,7 @@
         <module>document-store</module>
         <module>explore-ui5</module>
     -->
-    <module>helloworld</module>
+    <module>hello-world</module>
     <!--
         <module>mail</module>
         <module>persistence-with-jdbc</module>
@@ -394,7 +394,7 @@
 		</goals>
 		<configuration>
 		  <!-- Following console command is used to deploy the application to the QA environment -->
-		  <consoleCommand>rolling-update -a i312624trial -b helloworld -h hanatrial.ondemand.com -u i312624 -p Saplabs@4321 -source ${project.build.directory}/${project.artifactId}.war</consoleCommand>
+		  <consoleCommand>deploy -a ${sap.cloud.account} -b ${sap.cloud.application} -h ${sap.cloud.host} -u ${sap.cloud.username} -p ${sap.cloud.password} -source ${project.build.directory}/${project.artifactId}.war</consoleCommand>			              
 		</configuration>
 	      </execution>
 	      <execution>
@@ -405,7 +405,7 @@
 		</goals>
 		<configuration>
 		  <!-- The console commandis used to restart the application inorder to reflect the changes -->
-		  <consoleCommand>restart -a i312624trial -b helloworld -h hanatrial.ondemand.com -u i312624 -p Saplabs@4321 -source ${project.build.directory}/${project.artifactId}.war</consoleCommand>			              
+		  <consoleCommand>restart -a ${sap.cloud.account} -b ${sap.cloud.application} -h ${sap.cloud.host} -u ${sap.cloud.username} -p ${sap.cloud.password}</consoleCommand>			              
 		</configuration>
 	      </execution>
               <execution>
@@ -667,7 +667,8 @@
                   <goal>run-console-command</goal>
 		</goals>
 		<configuration>
-              <consoleCommand>rolling-update -a i312624trial -b helloworld -h hanatrial.ondemand.com -u i312624 -p Saplabs@4321 -source ${project.build.directory}/${project.artifactId}.war</consoleCommand>        
+		          <consoleCommand>rolling-update -a i312624trial -b helloworld -h hanatrial.ondemand.com -u i312624 -p Saplabs@4321 -source ${project.build.directory}/${project.artifactId}.war</consoleCommand>
+                  <!--consoleCommand>rolling-update -a ${sap.cloud.account} -b ${sap.cloud.application} -h ${sap.cloud.host} -u ${sap.cloud.username} -p ${sap.cloud.password} -source ${project.build.directory}/${project.artifactId}.war</consoleCommand-->                 
 		</configuration>
               </execution>
             </executions>
