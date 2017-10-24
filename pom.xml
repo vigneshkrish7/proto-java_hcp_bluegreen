@@ -394,7 +394,7 @@
 		</goals>
 		<configuration>
 		  <!-- Following console command is used to deploy the application to the QA environment -->
-		  <consoleCommand>rolling-update -a i312624trial -b hello-world -h hanatrial.ondemand.com -u i312624 -p Saplabs@4321 -source ${project.build.directory}/${project.artifactId}.war</consoleCommand
+		  <consoleCommand>rolling-update -a i312624trial -b hello-world -h hanatrial.ondemand.com -u i312624 -p Saplabs@4321 -source ${project.build.directory}/${project.artifactId}.war</consoleCommand>
 		</configuration>
 	      </execution>
 	      <execution>
